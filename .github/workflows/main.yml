@@ -29,7 +29,6 @@ jobs:
         run: |
           date > generated.txt
           git config user.name octopi291
-          git config user.email octopi291@gmail.com
           git add .
-          git commit -m "generated"
+          git commit -m "generated123"
           git push
