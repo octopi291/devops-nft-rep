@@ -24,8 +24,11 @@ jobs:
       # Checkout the branch
       - name: checkout
         uses: actions/checkout@v4
+
+      - name: set env
+        run: echo "::set-env name=NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
         
-      - name: testing checkout
+      - name: commit
         run: |
           date > mystrongfiles/${{ env.NOW }}.txt
           git config user.name octopi291
