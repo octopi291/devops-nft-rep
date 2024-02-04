@@ -23,23 +23,32 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: save current date
-        run: |
-          # do some operation that changes a file in the git repo
-          date > time.txt
+      #- name: save current date
+      #  run: |
+      #    # do some operation that changes a file in the git repo
+      #    date > time.txt
 
-      - name: setup git config
-        run: |
+      - name: testing checkout
+      - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
+
+      #- name: setup git config
+        #run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "octopi291"
+          #git config user.name "octopi291"
           # git config user.email "<>"
           
-      - name: commit
-        run: |
+      #- name: commit
+        #run: |
           # Stage the file, commit and push
-          git add time.txt
-          git commit -m "new date commit"
-          git push origin master
+          #git add time.txt
+          #git commit -m "new date commit"
+          #git push origin master
           
       # Runs a single command using the runners shell
       # - name: Run a one-line script
