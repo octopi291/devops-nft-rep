@@ -30,7 +30,7 @@ jobs:
         
       - name: commit
         run: |
-          date > mystrongfiles/${{ env.NOW }}.txt
+          date > data/${{ env.NOW }}.txt
           git config user.name octopi291
           git config user.email octopi291@gmail.com
           git add .
