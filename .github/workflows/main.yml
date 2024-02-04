@@ -25,15 +25,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - name: get current date
-        id: date
-        run: echo "{date}={$(date +'%Y-%m-%d')}" >> $DATE_TEST
+      - name: set env
+        run: echo "NOW=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
         
       - name: commit
         run: |
-          date > mystrongfiles/$DATE_TEST.txt
+          date > mystrongfiles/${{ env.NOW }}.txt
           git config user.name octopi291
           git config user.email octopi291@gmail.com
           git add .
-          git commit -m "commit-${{ steps.date.outputs.date }}"
+          git commit -m "commit-${{ env.NOW }}"
           git push
