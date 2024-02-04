@@ -6,9 +6,9 @@ name:
 # Controls when the workflow will run
 on:
   # Triggers the workflow every 5 minutes
-  workflow_dispatch 
-  # schedule:
-  #  - cron: "*/15 * * * *"
+  # workflow_dispatch 
+  schedule:
+  - cron: "0 1 * * *"
   
 permissions: write-all
  
