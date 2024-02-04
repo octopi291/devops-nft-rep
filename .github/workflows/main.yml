@@ -1,9 +1,9 @@
 # This is a basic workflow to help you get started with Actions
  
 name:
-  First Cron Job
+  Automated cronjob workflow
  
-  # Controls when the workflow will run
+# Controls when the workflow will run
 on:
   # Triggers the workflow every 5 minutes
   workflow_dispatch 
@@ -27,9 +27,9 @@ jobs:
         
       - name: testing checkout
         run: |
-          date > generated.txt
+          date > mystrongfiles/${{ env.NOW }}.txt
           git config user.name octopi291
           git config user.email octopi291@gmail.com
           git add .
-          git commit -m "generated123"
+          git commit -m "commit-${{ env.NOW }}"
           git push
